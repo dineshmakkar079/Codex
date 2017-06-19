@@ -7,8 +7,8 @@ var fs = require('fs');
 var exec = require('child_process').exec;
 app.post('/',(req,res)=>{
 	console.log('post requset recieved')
-	var probStatement = req.body.statement;
-	var probTitle = req.body.title;
+	var probStatement = req.body.statement.trim();
+	var probTitle = req.body.title.trim();
 	var probUrl = req.body.url;
 	var host = req.body.host;
 
