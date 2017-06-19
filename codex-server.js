@@ -14,6 +14,8 @@ app.post('/',(req,res)=>{
 
 	probTitle = probTitle.split(' ').join('_');
 
+	starterCode = "#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main(){\n\n\treturn 0;\n}\n"
+
 	// To display limited line length in IDE.
 	l = probStatement.length;
 	newProbStatement = '';
@@ -29,7 +31,7 @@ app.post('/',(req,res)=>{
 
 	// Make new file only if file doesn't exist already (i.e. if opened earlier) 
 	if(fs.readdirSync('/home/makkar/Documents/Coding/'+ host + '/').indexOf(probTitle + '.cpp') == -1)
-		fs.appendFileSync('/home/makkar/Documents/Coding/'+ host + '/' + probTitle + '.cpp' , '/*\nTime : ' +  (new Date()).toString()  +'\nURL : ' + probUrl + '\n' + probStatement +'\n-------------------------------------------------------\n*/\n')
+		fs.appendFileSync('/home/makkar/Documents/Coding/'+ host + '/' + probTitle + '.cpp' , '/*\nTime : ' +  (new Date()).toString()  +'\nURL : ' + probUrl + '\n' + probStatement +'\n*/\n\n' + starterCode)
 	
 	exec("/home/makkar/Downloads/VSCode-linux-x64/code /home/makkar/Documents/Coding/" + host + "/"+probTitle+".cpp &", ()=>{
 	 	console.log('launched VS Code.')

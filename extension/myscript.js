@@ -6,7 +6,7 @@ $(document).ready(function(){
     	if(url.indexOf('interviewbit') != -1){
     		statement = document.getElementById("problem-content").innerText;
     		title = document.getElementsByClassName("panel-title pull-left")[0].innerText;
-    		console.log("title :" + title)
+    		// defaultCode = document.getElementsByClassName("ace_layer ace_text-layer")[1].innerText;
 	    	response = `statement=`+statement+`&title=`+title+`&url=`+url+`&host=interviewbit`;
 	        sendResponse(response);
     	}else if(url.indexOf('codechef') != -1){
@@ -26,6 +26,11 @@ $(document).ready(function(){
     					document.getElementsByClassName("less-margin-2 input-output-container")[0].innerText;
     		response = `statement=`+statement+`&title=`+title+`&url=`+url+`&host=hackerearth`;
 			sendResponse(response);    		
-    	}	
+    	}else if(url.indexOf('geeksforgeeks') != -1){
+    		title =  document.getElementsByClassName("well whiteBgColor")[0].childNodes[1].innerText;
+    		statement = document.getElementsByClassName("well whiteBgColor")[0].childNodes[11].innerText;
+    		response = `statement=`+statement+`&title=`+title+`&url=`+url+`&host=geeksforgeeks`;
+			sendResponse(response);
+    	}
     });
 });
