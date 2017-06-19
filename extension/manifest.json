@@ -11,6 +11,7 @@
   },
   "content_scripts": [
       {
+      	"run_at": "document_end",
         "matches": [ "https://*/*","http://*/*"],
         "js": ["jquery-3.2.1.min.js","myscript.js"]
       }
