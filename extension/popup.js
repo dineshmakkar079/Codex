@@ -5,7 +5,6 @@ $(document).ready( function() {
   };
   chrome.tabs.query(queryInfo, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {host: "hello"}, function (response){
-      console.log(response)
       var serverUrl = 'http://localhost:12165/';
       var x = new XMLHttpRequest();
       x.open('POST', serverUrl , true);
