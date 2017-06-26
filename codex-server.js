@@ -1,10 +1,12 @@
-var express = require('express');
-var app = express();
-bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const spawn = require('child_process').spawn;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-var fs = require('fs');
-var exec = require('child_process').exec;
+
 app.post('/',(req,res)=>{
 	console.log('post requset recieved')
 	var probStatement = req.body.statement.trim();
@@ -29,14 +31,17 @@ app.post('/',(req,res)=>{
 	}
 	probStatement = newProbStatement;
 
-	// Make new file only if file doesn't exist already (i.e. if opened earlier) 
+	// Make new file only if file doesn't exist already (i.e. if opened earlier)
 	if(fs.readdirSync('/home/makkar/Documents/Coding/'+ host + '/').indexOf(probTitle + '.cpp') == -1)
-		fs.appendFileSync('/home/makkar/Documents/Coding/'+ host + '/' + probTitle + '.cpp' , '/*\nTime : ' +  (new Date()).toString()  +'\nURL : ' + probUrl + '\n' + probStatement +'\n*/\n\n' + starterCode)
-	
-	exec("/home/makkar/Downloads/VSCode-linux-x64/code /home/makkar/Documents/Coding/" + host + "/"+probTitle+".cpp &", ()=>{
-	 	console.log('launched VS Code.')
-		res.send("Done");
+		fs.appendFileSync('/home/makkar/Documents/Coding/'+ host + '/' + probTitle + '.cpp' , '/*\nTime : '
+		 +  (new Date()).toString()  +'\nURL : ' + probUrl + '\n' + probStatement +'\n*/\n\n' + starterCode);
+
+	var out = fs.openSync('/home/makkar/Desktop/linux/codex/logs.log','a');
+	var child = spawn("atom", ["/home/makkar/Documents/Coding/" + host + "/" + probTitle + ".cpp"] , {
+		detached : true,
+		stdio : ['ignore', out,out]
 	});
-})
+	res.send("Done");
+});
 app.listen(12165);
-console.log('server started.')
+console.log('server started at ' + (new Date()).toString());
