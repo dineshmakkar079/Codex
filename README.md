@@ -18,7 +18,7 @@ This is what this extension actually do.
 <li>Download whole directory of extension with codex-server.js file.</li>
 <li>Add following command at end of the file /home/{user}/.profile (so that you don't have to start the server manually, it automatically launches the server every time user logs in)
 <pre>
-nohup node /path/to/codex-server.js >> /path/in/which/to/log.log 2>&1 &
+nohup node /path/to/codex-server.js >> /path/to/file/in/which/to/log.log 2>&1 &
 </pre>
 </li>
 <li>Go to "chrome://extensions" in chrome browser. Enable developer mode.</li>
@@ -29,8 +29,18 @@ nohup node /path/to/codex-server.js >> /path/in/which/to/log.log 2>&1 &
 <ul>
 <li>Type command in terminal <br><pre>ss -lntp "sport = :12165"</pre></li>
 <li>Note the PID from above command and kill process using <br><pre>kill PID_OF_PROC</pre></li>
-<ul>
+</ul>
 <ul>Also : <br>
 <li>Change the variable(CODE_PATH) in codex-server.js to folder where you want to save code</li>
-<li>Create four folders with the name  geeksforgeeks ,  hackerearth, codechef, interviewbit (with exactly these names.)</li>
+<li>Create four folders with the names  geeksforgeeks ,  hackerearth, codechef, interviewbit inside the folder you made above.(with exactly these names.)</li>
 </ul>
+
+<h3>Star the repo if it helped you.</h3>
+For help / suggestions - dineshmakkar079@gmail.com
+
+<h2>Author</h2>
+<h3>
+Dinesh Makkar<br>
+Pre-final year Undergrad<br>
+IIT Guwahati.
+</h3>
