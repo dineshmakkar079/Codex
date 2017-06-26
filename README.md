@@ -10,10 +10,17 @@ This extension automatically loads the question from above mentioned websites in
 <li>Problem statement and solution at one place with once click.</li>
 </ul>
 
+This is what this extension actually do.
+<img src="https://raw.githubusercontent.com/dineshmakkar079/Codex/master/sample.png">
+
 <h3>Usage</h3>
 <ul>
 <li>Download whole directory of extension with codex-server.js file.</li>
-<li>Add following command at end of the file /home/{user}/.profile (so that you don't have to start the server manually, it automatically launches the server every time user logs in)</li>
+<li>Add following command at end of the file /home/{user}/.profile (so that you don't have to start the server manually, it automatically launches the server every time user logs in)
+<pre>
+nohup node /path/to/codex-server.js >> /path/in/which/to/log.log 2>&1 &
+</pre>
+</li>
 <li>Go to "chrome://extensions" in chrome browser. Enable developer mode.</li>
 <li>Click load unpacked extension and select the directory "extension" that you downloaded above.</li>
 </ul>
@@ -22,4 +29,8 @@ This extension automatically loads the question from above mentioned websites in
 <ul>
 <li>Type command in terminal <br><pre>ss -lntp "sport = :12165"</pre></li>
 <li>Note the PID from above command and kill process using <br><pre>kill PID_OF_PROC</pre></li>
+<ul>
+<ul>Also : <br>
+<li>Change the variable(CODE_PATH) in codex-server.js to folder where you want to save code</li>
+<li>Create four folders with the name  geeksforgeeks ,  hackerearth, codechef, interviewbit (with exactly these names.)</li>
 </ul>
