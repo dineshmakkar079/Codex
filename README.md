@@ -1,7 +1,7 @@
 # Codex
 Chrome extension that links Atom text editor with Codechef, Hackerearth, Interviewbit, GeeksForGeeks.
 
-<h3>About</h3>
+<h2>About</h2>
 This extension automatically loads the question from above mentioned websites in Atom Text Editor.
 <h5>Adavnatges</h5>
 <ul>
@@ -13,7 +13,14 @@ This extension automatically loads the question from above mentioned websites in
 This is what this extension actually do.
 <img src="https://raw.githubusercontent.com/dineshmakkar079/Codex/master/sample.png">
 
-<h3>Usage</h3>
+<h2>Requirements</h2>
+<ul>
+<li>Node js</li>
+<li>These node packages : express , child_process , body-parser<br>
+Install each one of them by running -  npm install PACKAGE_NAME </li>
+</ul>
+
+<h2>Usage</h2>
 <ul>
 <li>Download whole directory of extension with codex-server.js file.</li>
 <li>Add following command at end of the file /home/{user}/.profile (so that you don't have to start the server manually, it automatically launches the server every time user logs in)
