@@ -3,12 +3,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const spawn = require('child_process').spawn;
+const CODE_PATH = '/home/makkar/Documents/Coding/';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/',(req,res)=>{
-	console.log('post requset recieved')
 	var probStatement = req.body.statement.trim();
 	var probTitle = req.body.title.trim();
 	var probUrl = req.body.url;
@@ -32,12 +32,12 @@ app.post('/',(req,res)=>{
 	probStatement = newProbStatement;
 
 	// Make new file only if file doesn't exist already (i.e. if opened earlier)
-	if(fs.readdirSync('/home/makkar/Documents/Coding/'+ host + '/').indexOf(probTitle + '.cpp') == -1)
-		fs.appendFileSync('/home/makkar/Documents/Coding/'+ host + '/' + probTitle + '.cpp' , '/*\nTime : '
+	if(fs.readdirSync(CODE_PATH + host + '/').indexOf(probTitle + '.cpp') == -1)
+		fs.appendFileSync(CODE_PATH + host + '/' + probTitle + '.cpp' , '/*\nTime : '
 		 +  (new Date()).toString()  +'\nURL : ' + probUrl + '\n' + probStatement +'\n*/\n\n' + starterCode);
 
-	var out = fs.openSync('/home/makkar/Desktop/linux/codex/logs.log','a');
-	var child = spawn("atom", ["/home/makkar/Documents/Coding/" + host + "/" + probTitle + ".cpp"] , {
+	var out = fs.openSync(__dirname + '/logs.log','a');
+	var child = spawn("atom", [CODE_PATH + host + "/" + probTitle + ".cpp"] , {
 		detached : true,
 		stdio : ['ignore', out,out]
 	});
