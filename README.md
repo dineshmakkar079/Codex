@@ -48,6 +48,6 @@ For help / suggestions - dineshmakkar079@gmail.com
 <h2>Author</h2>
 <h3>
 Dinesh Makkar<br>
-Pre-final year Undergrad<br>
+Final year Undergrad<br>
 IIT Guwahati.
 </h3>
