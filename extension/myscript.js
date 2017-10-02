@@ -27,8 +27,8 @@ $(document).ready(function(){
     		response = `statement=`+statement+`&title=`+title+`&url=`+url+`&host=hackerearth`;
 			sendResponse(response);    		
     	}else if(url.indexOf('geeksforgeeks') != -1){
-    		title =  document.getElementsByClassName("well whiteBgColor")[0].childNodes[1].innerText;
-    		statement = document.getElementsByClassName("well whiteBgColor")[0].childNodes[11].innerText;
+    		title =  document.getElementsByClassName("well whiteBgColor")[1].childNodes[1].innerText;
+    		statement = document.getElementsByClassName("well whiteBgColor")[1].childNodes[11].innerText;
     		response = `statement=`+statement+`&title=`+title+`&url=`+url+`&host=geeksforgeeks`;
 			sendResponse(response);
     	}
